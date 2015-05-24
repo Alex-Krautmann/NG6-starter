@@ -6,8 +6,8 @@ import AppComponent from './app.component';
 import 'normalize.css';
 
 angular.module('app', [
-	uiRouter,
-	Common.name,
-	Components.name
+    uiRouter,
+    Common.name,
+    Components.name
 ])
-.directive('app', AppComponent);
+    .directive('app', AppComponent);

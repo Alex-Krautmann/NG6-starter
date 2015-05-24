@@ -34,7 +34,8 @@
     "style-loader": "^0.12.2",
     "stylus-loader": "^1.1.1",
     "webpack": "^1.9.5",
-    "yargs": "^3.9.0"
+    "yargs": "^3.9.0",
+    "uglify-loader": "~1.2.0"
   },
   "scripts": {
     "test": "karma start"
