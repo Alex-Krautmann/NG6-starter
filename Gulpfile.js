@@ -8,7 +8,19 @@ var gulp = require('gulp'),
     fs = require('fs'),
     yargs = require('yargs').argv,
     lodash = require('lodash'),
-    webpackConfig = require("./webpack.config.js");
+    webpackConfig = require("./webpack.config.js"),
+    karma = require('karma').server;
+
+
+gulp.task('test', function (done) {
+    var browser = yargs.testBrowser || 'PhantomJS';
+    karma.start({
+        configFile: __dirname + '/karma.conf.js',
+        browsers: [browser]
+    }, done);
+});
+
+
 
 reload = function () {
     return serve.reload()
@@ -92,5 +104,5 @@ gulp.task('component', function () {
 
 
 gulp.task('default', function (done) {
-    sync('webpack', 'serve', 'watch', done);
+    sync('webpack', 'serve', 'watch', 'test', done);
 });
