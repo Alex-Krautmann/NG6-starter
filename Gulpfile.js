@@ -59,7 +59,6 @@ gulp.task('serve', function () {
     });
 });
 
-
 gulp.task('watch', function () {
     var allPaths = [].concat(
         [paths.js],

@@ -3,8 +3,9 @@ import uiRouter from 'angular-ui-router';
 import <%= name %>Component from './<%= name %>.component'; 
 
 let <%= name %>Module = angular.module('<%= name %>', [
-	uiRouter
+    uiRouter
 ])
-.directive('<%= name %>', <%= name %>Component);
+
+<%= name %>Module.directive('<%= name %>', <%= name %>Component);
 
 export default <%= name %>Module;

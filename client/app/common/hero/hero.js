@@ -4,7 +4,8 @@ import heroComponent from './hero.component';
 
 let heroModule = angular.module('hero', [
     uiRouter
-])
-    .directive('hero', heroComponent);
+]);
+
+heroModule.directive('hero', heroComponent);
 
 export default heroModule;
