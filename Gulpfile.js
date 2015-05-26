@@ -12,16 +12,6 @@ var gulp = require('gulp'),
     karma = require('karma').server;
 
 
-gulp.task('test', function (done) {
-    var browser = yargs.testBrowser || 'PhantomJS';
-    karma.start({
-        configFile: __dirname + '/karma.conf.js',
-        browsers: [browser]
-    }, done);
-});
-
-
-
 reload = function () {
     return serve.reload()
 };
@@ -48,7 +38,7 @@ var paths = {
         resolveToApp('**/*.html'),
         path.join(root, 'index.html')
     ],
-
+    karmaConfig: __dirname + '/karma.conf.js',
     entry: path.join(root, 'app/app.js'),
     output: root,
     blankTemplates: path.join(__dirname, 'generator', 'component/**/*.**')
@@ -78,8 +68,14 @@ gulp.task('watch', function () {
         [paths.styl]
     );
 
-
     gulp.watch(allPaths, ['webpack', reload]);
+});
+
+gulp.task('test', function (done) {
+    karma.start({
+        configFile: paths.karmaConfig,
+        browsers: [yargs.testBrowser || 'PhantomJS']
+    }, done);
 });
 
 gulp.task('component', function () {
@@ -104,5 +100,5 @@ gulp.task('component', function () {
 
 
 gulp.task('default', function (done) {
-    sync('webpack', 'serve', 'watch', 'test', done);
+    sync('webpack', 'serve', 'watch', done);
 });
