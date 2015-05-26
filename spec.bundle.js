@@ -9,10 +9,10 @@
 */
 
 // import angular duh
-import angular from 'angular';
+import 'angular';
 // angular-mocks is a angular plugin built by the angular team
 // for mocking out dependencies, we need this
-import mocks from 'angular-mocks';
+import 'angular-mocks';
 
 // Ok, this is kinda cray cray. We can use the the context method on
 // require that webpack created in order to tell webpack

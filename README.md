@@ -49,6 +49,8 @@ NG6 uses Gulp and Webpack together for its build system. Yes, you don't need Gul
 * Starting a dev server (yes webpack can do this too)
 * Refreshing the browser and rebuilding on file changes
 * Generate boilerplate for our angular app
+* Test running karma with webpack
+* Creating test coverage reports showing ES6 source code
 
 ## File Structure
 We use the component approach in NG6. This will be a standard if using the new router in angular and a great way to ensure easy transition to Angular 2. Everything or mostly everything is a component. A component is a self contained app basically. It has its own style, template, controllers, routing, specs, etc. All capsulated in its own folder. Here's how it looks:

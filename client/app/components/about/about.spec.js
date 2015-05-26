@@ -1,4 +1,4 @@
-import AboutModule from './about'
+import AboutModule from './about';
 import AboutController from './about.controller';
 import AboutComponent from './about.component';
 import AboutTemplate from './about.html';
@@ -44,7 +44,7 @@ describe('About', ()=> {
 
     describe('Component', ()=> {
         // test the component/directive itself
-        let component = AboutComponent();
+        let component = new AboutComponent();
 
         it('should use the right template', ()=> {
             expect(component.template).to.equal(AboutTemplate);
@@ -59,9 +59,3 @@ describe('About', ()=> {
         });
     });
 });
-
- 
-
-
-
-

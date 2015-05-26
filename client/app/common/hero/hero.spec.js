@@ -1,4 +1,4 @@
-import HeroModule from './hero'
+import HeroModule from './hero';
 import HeroController from './hero.controller';
 import HeroComponent from './hero.component';
 import HeroTemplate from './hero.html';
@@ -44,7 +44,7 @@ describe('Hero', ()=> {
 
     describe('Component', ()=> {
         // test the component/directive itself
-        let component = HeroComponent();
+        let component = new HeroComponent();
 
         it('should use the right template', ()=> {
             expect(component.template).to.equal(HeroTemplate);
@@ -59,9 +59,3 @@ describe('Hero', ()=> {
         });
     });
 });
-
- 
-
-
-
-

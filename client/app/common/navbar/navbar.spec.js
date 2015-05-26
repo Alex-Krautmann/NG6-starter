@@ -1,4 +1,4 @@
-import NavbarModule from './navbar'
+import NavbarModule from './navbar';
 import NavbarController from './navbar.controller';
 import NavbarComponent from './navbar.component';
 import NavbarTemplate from './navbar.html';
@@ -44,7 +44,7 @@ describe('Navbar', ()=> {
 
     describe('Component', ()=> {
         // test the component/directive itself
-        let component = NavbarComponent();
+        let component = new NavbarComponent();
 
         it('should use the right template', ()=> {
             expect(component.template).to.equal(NavbarTemplate);
@@ -59,9 +59,3 @@ describe('Navbar', ()=> {
         });
     });
 });
-
- 
-
-
-
-

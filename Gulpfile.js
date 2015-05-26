@@ -7,8 +7,9 @@ var gulp = require('gulp'),
     template = require('gulp-template'),
     fs = require('fs'),
     yargs = require('yargs').argv,
-    lodash = require('lodash'),
+    _ = require('lodash'),
     webpackConfig = require("./webpack.config.js"),
+    karmaConfig = require("./karmaConfig.js"),
     karma = require('karma').server;
 
 
@@ -71,11 +72,45 @@ gulp.task('watch', function () {
     gulp.watch(allPaths, ['webpack', reload]);
 });
 
+var createCoverageConfigFrom = function (from, coverageReporter) {
+    var to = _.assign({}, from);
+
+    to.coverageReporter = coverageReporter || {type: 'text'};
+
+    to.webpack.module.preLoaders = [{test: /(\.js)$/, exclude: [/\.spec.js/, /node_modules\//], loader: 'isparta-instrumenter-loader'}];
+    to.webpack.module.loaders[0].loader = 'babel';
+    to.reporters = ['progress', 'coverage'];
+
+    return to;
+};
+
 gulp.task('test', function (done) {
-    karma.start({
-        configFile: paths.karmaConfig,
-        browsers: [yargs.testBrowser || 'PhantomJS']
-    }, done);
+    var config;
+
+    if (yargs.coverage) {
+        config = createCoverageConfigFrom(karmaConfig, {type: 'text-summary'});
+    } else if (yargs.coverageDetail) {
+        config = createCoverageConfigFrom(karmaConfig, {type: 'text'});
+    } else {
+        config = _.assign({}, karmaConfig);
+    }
+
+    config.browsers = [ yargs.browser || 'PhantomJS' ];
+
+    karma.start(config, done);
+});
+
+gulp.task('coverage-report', function (done) {
+    var config = createCoverageConfigFrom(karmaConfig, {
+        type: 'html',
+        dir: 'reports/coverage/'
+    });
+
+    config.browsers = [ yargs.browser || 'PhantomJS' ];
+    config.autoWatch = false;
+    config.singleRun = true;
+
+    karma.start(config, done);
 });
 
 gulp.task('component', function () {

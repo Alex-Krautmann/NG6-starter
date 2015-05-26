@@ -1,4 +1,4 @@
-import <%= upCaseName %>Module from './<%= name %>'
+import <%= upCaseName %>Module from './<%= name %>';
 import <%= upCaseName %>Controller from './<%= name %>.controller';
 import <%= upCaseName %>Component from './<%= name %>.component';
 import <%= upCaseName %>Template from './<%= name %>.html';
@@ -44,7 +44,7 @@ describe('<%= upCaseName %>', ()=>{
 
     describe('Component', ()=>{
         // test the component/directive itself
-        let component = <%= upCaseName %>Component();
+        let component = new <%= upCaseName %>Component();
 
         it('should use the right template',()=>{
             expect(component.template).to.equal(<%= upCaseName %>Template);
@@ -59,9 +59,3 @@ describe('<%= upCaseName %>', ()=>{
         });
     });
 });
-
- 
-
-
-
-

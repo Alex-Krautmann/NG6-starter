@@ -1,4 +1,4 @@
-import HomeModule from './home'
+import HomeModule from './home';
 import HomeController from './home.controller';
 import HomeComponent from './home.component';
 import HomeTemplate from './home.html';
@@ -44,7 +44,7 @@ describe('Home', ()=> {
 
     describe('Component', ()=> {
         // test the component/directive itself
-        let component = HomeComponent();
+        let component = new HomeComponent();
 
         it('should use the right template', ()=> {
             expect(component.template).to.equal(HomeTemplate);
@@ -59,9 +59,3 @@ describe('Home', ()=> {
         });
     });
 });
-
- 
-
-
-
-

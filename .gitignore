@@ -3,6 +3,7 @@
 node_modules
 .settings
 *.log
+reports
 client/bundle.js
 client/bundle.js.map
 client/vendor.bundle.js
