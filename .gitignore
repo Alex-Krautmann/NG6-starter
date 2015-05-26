@@ -1,9 +1,9 @@
-.git
-.idea
-node_modules
-.settings
+.git/
+.idea/
+node_modules/
+.settings/
 *.log
-reports
+reports/
 client/bundle.js
 client/bundle.js.map
 client/vendor.bundle.js
