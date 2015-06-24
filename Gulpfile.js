@@ -5,16 +5,16 @@ var gulp = require('gulp'),
     serve = require('browser-sync'),
     rename = require('gulp-rename'),
     template = require('gulp-template'),
-    fs = require('fs'),
     yargs = require('yargs').argv,
     _ = require('lodash'),
-    webpackConfig = require("./webpack.config.js"),
-    karmaConfig = require("./karmaConfig.js"),
+    webpackConfig = require('./webpack.config.js'),
+    karmaConfig = require('./karmaConfig.js'),
     karma = require('karma').server;
 
+var root = 'client';
 
-reload = function () {
-    return serve.reload()
+var reload = function () {
+    return serve.reload();
 };
 
 
@@ -29,7 +29,6 @@ var resolveToComponents = function (glob) {
     return path.join(root, 'app/components', glob); // app/components/{glob}
 };
 
-var root = 'client';
 
 // map of all our paths
 var paths = {
@@ -39,7 +38,7 @@ var paths = {
         resolveToApp('**/*.html'),
         path.join(root, 'index.html')
     ],
-    karmaConfig: __dirname + '/karma.conf.js',
+    karmaConfig: path.join(__dirname, '/karma.conf.js'),
     entry: path.join(root, 'app/app.js'),
     output: root,
     blankTemplates: path.join(__dirname, 'generator', 'component/**/*.**')
@@ -127,8 +126,8 @@ gulp.task('component', function () {
             name: name,
             upCaseName: cap(name)
         }))
-        .pipe(rename(function (path) {
-            path.basename = path.basename.replace('temp', name);
+        .pipe(rename(function (srcPath) {
+            srcPath.basename = srcPath.basename.replace('temp', name);
         }))
         .pipe(gulp.dest(destPath));
 });
