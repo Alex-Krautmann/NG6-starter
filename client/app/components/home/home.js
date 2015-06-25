@@ -14,6 +14,7 @@ homeModule.config(($stateProvider, $urlRouterProvider)=> {
             url: '/',
             template: '<home></home>'
         });
+
 });
 
 homeModule.directive('home', homeComponent);

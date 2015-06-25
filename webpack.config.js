@@ -6,8 +6,11 @@ module.exports = {
         app: './client/app/app.js',
         vendor: [
             'angular',
+            'angular-aria',
+            'angular-animate',
+            'angular-material',
             'angular-ui-router',
-            'normalize.css'
+            'angular-material'
         ]
     },
     output: {

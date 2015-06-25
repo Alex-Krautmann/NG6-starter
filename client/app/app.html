@@ -1,5 +1,16 @@
-<!--Anything you want to be on every page, place it in this file-->
-<div class="app">
-	<navbar></navbar>
-	<div ui-view></div>
+<div class="app" layout="row">
+
+	<site-global-side-nav>
+	</site-global-side-nav>
+
+	<div layout="column" flex>
+
+		<site-global-toolbar>
+		</site-global-toolbar>
+
+		<md-content layout-padding md-scroll-y ui-view>
+		</md-content>
+
+	</div>
+
 </div>
