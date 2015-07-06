@@ -55,5 +55,10 @@ describe('GlobalSideNav', ()=>{
         it('should use the right controller', ()=>{
             expect(component.controller).to.equal(GlobalSideNavController);
         });
+
+        it('should use bindToController', ()=>{
+            expect(component).to.have.property('bindToController');
+            expect(component.bindToController).to.be.true;
+        });
     });
 });

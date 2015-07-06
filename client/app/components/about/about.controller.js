@@ -1,6 +1,7 @@
 class AboutController {
-    constructor() {
+    constructor(NavState) {
         this.name = 'about';
+        NavState.setStateTitle('About');
     }
 }
 

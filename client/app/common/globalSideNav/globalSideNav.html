@@ -1,8 +1,8 @@
 <md-sidenav md-component-id="left" class="md-sidenav-left" md-is-locked-open="vm.isNavLocked()" layout-padding layout-fill>
 
     <header>
-        <a ui-sref="home">
-            <h2>Material NG6-Starter</h2>
+        <a ui-sref="home" ng-click="vm.closeNav()">
+            <h2>{{vm.APP_NAME}}</h2>
         </a>
     </header>
 
@@ -11,7 +11,7 @@
         <md-list>
             <md-list-item ng-repeat="section in vm.sections">
                 <div class="md-list-item-text">
-                    <h3><a ui-sref="{{section.sref}}" ng-click="vm.closeNav()">{{section.name}}</a></h3>
+                    <h3><a ui-sref="{{section.sref}}" ng-click="vm.closeNav()">{{section.title}}</a></h3>
                 </div>
             </md-list-item>
         </md-list>

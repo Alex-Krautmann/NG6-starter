@@ -1,9 +1,11 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import aboutComponent from './about.component';
+import '../../common/navState/navState';
 
 let aboutModule = angular.module('about', [
-    uiRouter
+    uiRouter,
+    'common.navState'
 ]);
 
 aboutModule.config(($stateProvider)=> {

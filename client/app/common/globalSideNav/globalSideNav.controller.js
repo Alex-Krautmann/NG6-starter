@@ -1,14 +1,15 @@
 class GlobalSideNavController {
-    constructor ($mdMedia, $mdSidenav) {
+    constructor ($mdMedia, $mdSidenav, NavState) {
 
         this.name = 'globalSideNav';
+        this.APP_NAME = NavState.APP_NAME;
         this.$mdMedia = $mdMedia;
         this.$mdSidenav = $mdSidenav;
         this.sideNavComponentId = 'left'; //todo: move to const file
 
         this.sections = [
-            {name: 'Home', sref: 'home'},
-            {name: 'About', sref: 'about'}
+            {title: 'Home', sref: 'home'},
+            {title: 'About', sref: 'about'}
         ];
     }
 

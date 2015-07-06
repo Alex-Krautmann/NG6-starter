@@ -28,7 +28,7 @@ describe('GlobalToolbar', ()=>{
         it('should have a name property [REMOVE]', ()=>{ // erase me if you remove this.name from the controller
             let controller = makeController();
 
-            expect(controller).to.have.property('name'); 
+            expect(controller).to.have.property('name');
         });
     });
 
@@ -36,9 +36,6 @@ describe('GlobalToolbar', ()=>{
         // test the template
         // use Regexes to test that you are using the right bindings {{  }}
 
-        it('should have name in template [REMOVE]', ()=>{
-            expect(GlobalToolbarTemplate).to.match(/{{\s?vm\.name\s?}}/g);
-        });
     });
 
 
