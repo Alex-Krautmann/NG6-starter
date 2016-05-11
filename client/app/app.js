@@ -3,7 +3,8 @@ import uiRouter from 'angular-ui-router';
 import Common from './common/common';
 import Components from './components/components';
 import AppComponent from './app.component';
-import 'normalize.css';
+import 'onsenui/css/onsenui.css';
+import 'onsenui/css/onsen-css-components.css';
 
 angular.module('app', [
     uiRouter,
@@ -16,5 +17,12 @@ angular.module('app', [
     // #how-to-configure-your-server-to-work-with-html5mode
     $locationProvider.html5Mode(true).hashPrefix('!');
   })
-
   .component('app', AppComponent);
+
+// Bootsraps application after requiring onsenui
+window.ons = require('onsenui/js/onsenui');
+let docEl = angular.element(document);
+docEl.ready(function() {
+  require('onsenui/js/angular-onsenui');
+  angular.bootstrap(docEl.find('body')[0], ['app'], {strictDi: true});
+});
