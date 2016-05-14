@@ -6,15 +6,16 @@ let homeModule = angular.module('home', [
   uiRouter
 ])
 
-.config(($stateProvider, $urlRouterProvider) => {
+.config(($stateProvider) => {
   "ngInject";
 
-  $urlRouterProvider.otherwise('/');
-
   $stateProvider
-    .state('home', {
+    .state('appMenu.home', {
+      parent: 'appMenu',
       url: '/',
-      template: '<home></home>'
+      onEnter: ['$rootScope', function($rootScope) {
+        $rootScope.appMenu.setMainPage('home.html', {closeMenu: true});
+      }]
     });
 })
 

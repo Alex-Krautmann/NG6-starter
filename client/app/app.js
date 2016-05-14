@@ -9,17 +9,23 @@ import 'onsenui/css/onsen-css-components.css';
 angular.module('app', [
     uiRouter,
     Common.name,
-    Components.name
+    Components.name,
+    'onsen'
   ])
-  .config(($locationProvider) => {
+  .config(($locationProvider, $stateProvider, $urlRouterProvider) => {
     "ngInject";
     // @see: https://github.com/angular-ui/ui-router/wiki/Frequently-Asked-Questions
     // #how-to-configure-your-server-to-work-with-html5mode
     $locationProvider.html5Mode(true).hashPrefix('!');
+    $urlRouterProvider.otherwise('/');
+    $stateProvider
+      .state('appMenu', {
+        abstract: true
+      });
   })
   .component('app', AppComponent);
 
-// Bootsraps application after requiring onsenui
+// Bootstraps application after requiring onsenui
 window.ons = require('onsenui/js/onsenui');
 let docEl = angular.element(document);
 docEl.ready(function() {

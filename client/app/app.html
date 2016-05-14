@@ -1,5 +1,27 @@
 <!-- Place all UI elements intended to be present across all routes in this file -->
-<app-common-navbar></app-common-navbar>
-<div class="app">
-  <div ui-view></div>
-</div>
+<!--<app-common-navbar></app-common-navbar>-->
+<!--<div class="app">-->
+  <!--<div ui-view></div>-->
+<!--</div>-->
+
+<ons-sliding-menu var="appMenu" close-on-tap>
+  <div class="menu">
+    <ons-page>
+      Menu page contents
+      <ons-button ui-sref="appMenu.home">Home</ons-button>
+      <ons-button modifier="light" ui-sref="appMenu.about">About</ons-button>
+    </ons-page>
+  </div>
+</ons-sliding-menu>
+
+
+<ons-template id="home.html">
+  <ons-page>
+    <home></home>
+  </ons-page>
+</ons-template>
+<ons-template id="about.html">
+  <ons-page>
+    <about></about>
+  </ons-page>
+</ons-template>
