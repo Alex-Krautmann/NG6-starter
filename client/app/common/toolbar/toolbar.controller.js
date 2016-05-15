@@ -1,6 +1,12 @@
 class ToolbarController {
   name = 'app.common.toolbar';
-  constructor() {
+
+  static $inject = ['$rootScope'];
+  constructor($rootScope) {
+    this.$rootScope = $rootScope;
+  }
+  openAppSplitterSide() {
+    this.$rootScope.appSplitter.left.open();
   }
 }
 

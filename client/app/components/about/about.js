@@ -9,11 +9,12 @@ let aboutModule = angular.module('about', [
 .config(($stateProvider) => {
   "ngInject";
   $stateProvider
-    .state('appMenu.about', {
-      parent: 'appMenu',
+    .state('appSplitter.about', {
+      parent: 'appSplitter',
       url: '/about',
       onEnter: ['$rootScope', function($rootScope) {
-        $rootScope.appMenu.setMainPage('about.html', {closeMenu: true});
+        $rootScope.appSplitter.content.load('about.html');
+        $rootScope.appSplitter.left.close();
       }]
     });
 })

@@ -1,13 +1,10 @@
-<!--<ons-toolbar ng-if="test">-->
-  <!--<div class="left">-->
-    <!--<ons-back-button>Back</ons-back-button>-->
-  <!--</div>-->
-  <!--<div class="center">Title</div>-->
-  <!--<div class="right">-->
-    <!--<ons-toolbar-button>-->
-      <!--<ons-icon icon="fa-bars">-->
-    <!--</ons-toolbar-button>-->
-  <!--</div>-->
-  <!--Test-->
-<!--</ons-toolbar>-->
-<p>Hello</p>
+<!--TODO: inline attribute is a hack for the moment as this crashes the browser in onsen ui 2.0.0rc4-->
+<ons-toolbar inline>
+  <div class="left">
+    <ons-toolbar-button ng-click="vm.openAppSplitterSide()">
+      <ons-icon icon="md-menu" />
+    </ons-toolbar-button>
+  </div>
+  <div class="center">{{vm.title}}</div>
+</ons-toolbar>
+<!--<p>Hello</p>-->

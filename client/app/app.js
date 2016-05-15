@@ -19,7 +19,7 @@ angular.module('app', [
     $locationProvider.html5Mode(true).hashPrefix('!');
     $urlRouterProvider.otherwise('/');
     $stateProvider
-      .state('appMenu', {
+      .state('appSplitter', {
         abstract: true
       });
   })

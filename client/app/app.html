@@ -1,16 +1,37 @@
-<ons-sliding-menu
-  var="appMenu"
-  type="overlay"
-  max-slide-distance="200px"
-  close-on-tap>
-  <div class="menu">
+<!--<ons-sliding-menu-->
+  <!--var="appMenu"-->
+  <!--type="overlay"-->
+  <!--max-slide-distance="200px"-->
+  <!--close-on-tap>-->
+  <!--<div class="menu">-->
+    <!--<ons-page>-->
+      <!--Menu page contents-->
+      <!--<ons-button ui-sref="appMenu.home">Home</ons-button>-->
+      <!--<ons-button modifier="light" ui-sref="appMenu.about">About</ons-button>-->
+    <!--</ons-page>-->
+  <!--</div>-->
+<!--</ons-sliding-menu>-->
+
+<ons-splitter
+  var="appSplitter">
+  <ons-splitter-side
+    side="left"
+    width="200px"
+    collapse="portrait"
+    swipeable>
     <ons-page>
-      Menu page contents
-      <ons-button ui-sref="appMenu.home">Home</ons-button>
-      <ons-button modifier="light" ui-sref="appMenu.about">About</ons-button>
+      <ons-list>
+        <ons-list-item ui-sref="appSplitter.home" tappable>
+          Home
+        </ons-list-item>
+        <ons-list-item ui-sref="appSplitter.about" tappable>
+          About
+        </ons-list-item>
+      </ons-list>
     </ons-page>
-  </div>
-</ons-sliding-menu>
+  </ons-splitter-side>
+  <ons-splitter-content></ons-splitter-content>
+</ons-splitter>
 
 
 <ons-template id="home.html">
@@ -21,7 +42,7 @@
 </ons-template>
 <ons-template id="about.html">
   <ons-page>
-    <app-common-toolbar></app-common-toolbar>
+    <app-common-toolbar title="About"></app-common-toolbar>
     <about></about>
   </ons-page>
 </ons-template>

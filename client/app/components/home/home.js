@@ -10,11 +10,12 @@ let homeModule = angular.module('home', [
   "ngInject";
 
   $stateProvider
-    .state('appMenu.home', {
-      parent: 'appMenu',
+    .state('appSplitter.home', {
+      parent: 'appSplitter',
       url: '/',
       onEnter: ['$rootScope', function($rootScope) {
-        $rootScope.appMenu.setMainPage('home.html', {closeMenu: true});
+        $rootScope.appSplitter.content.load('home.html');
+        $rootScope.appSplitter.left.close();
       }]
     });
 })

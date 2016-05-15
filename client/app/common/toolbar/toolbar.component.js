@@ -4,7 +4,9 @@ import './toolbar.styl';
 
 let toolbarComponent = {
   restrict: 'E',
-  bindings: {},
+  bindings: {
+    title: '@'
+  },
   template,
   controller,
   controllerAs: 'vm'

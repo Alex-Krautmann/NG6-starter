@@ -1,12 +1,16 @@
 class HomeController {
-  static $inject = ['$rootScope'];
+
   name = 'home';
+
+  static $inject = ['$rootScope'];
   constructor($rootScope) {
     this.$rootScope = $rootScope;
   }
-  toggleMenu = ()=> {
-    this.$rootScope.appMenu.toggleMenu();
-  };
+
+  toggleSplitterSide = ()=> {
+    this.$rootScope.appSplitter.left.toggle();
+  }
+  
 }
 
 export default HomeController;
