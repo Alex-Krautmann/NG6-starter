@@ -1,10 +1,8 @@
-<!-- Place all UI elements intended to be present across all routes in this file -->
-<!--<app-common-navbar></app-common-navbar>-->
-<!--<div class="app">-->
-  <!--<div ui-view></div>-->
-<!--</div>-->
-
-<ons-sliding-menu var="appMenu" close-on-tap>
+<ons-sliding-menu
+  var="appMenu"
+  type="overlay"
+  max-slide-distance="200px"
+  close-on-tap>
   <div class="menu">
     <ons-page>
       Menu page contents
@@ -17,11 +15,13 @@
 
 <ons-template id="home.html">
   <ons-page>
+    <app-common-toolbar></app-common-toolbar>
     <home></home>
   </ons-page>
 </ons-template>
 <ons-template id="about.html">
   <ons-page>
+    <app-common-toolbar></app-common-toolbar>
     <about></about>
   </ons-page>
 </ons-template>
